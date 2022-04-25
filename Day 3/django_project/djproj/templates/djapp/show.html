@@ -1,3 +1,5 @@
+{% extends "djapp/base.html" %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,19 +11,27 @@
 
 </head>
 <body class="text-center">
-    <h1>Student Details Screen</h1>
-    <hr />
+    {% block title_block %}
+        <h1>Student Details Screen</h1>
+        <hr />
+        <a class="btn btn-success" href="{% url 'home' %}" class="card-link">Back</a>
 
-    <div class="card" style="width: 18rem; margin: 0 auto;">
-        <div class="card-body">
-            <h5 class="card-title">{{ st.fname }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ st.lname }}</h6>
-            <p class="card-text">Age: {{ st.age }}</p>
-            <p class="card-text">Graduated: {{ st.is_adult }}</p>
-            <p class="card-text">Track: {{ st.student_track }}</p>
-            <td><a class="btn btn-danger" href = "{% url 'del' st.id %}">Delete</a></td>
-            <a href="{% url 'home' %}" class="card-link">Back</a>
+    {% endblock %}
+    {% block main_block %}
+        <div class="card" style="width: 18rem; margin: 0 auto;">
+            <div class="card-body">
+                <h5 class="card-title">{{ st.fname }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ st.lname }}</h6>
+                <p class="card-text">Age: {{ st.age }}</p>
+                <p class="card-text">Graduated: {{ st.is_adult }}</p>
+                <p class="card-text">Track: {{ st.student_track }}</p>
+                <td><a class="btn btn-danger" href = "{% url 'del' st.id %}">Delete</a></td>
+                <!-- <a href="{% url 'home' %}" class="card-link">Back</a> -->
+            </div>
         </div>
-    </div>
+    {% endblock %}
+    
+
+    
 </body>
 </html>
