@@ -28,3 +28,14 @@ def addStudent(request):
             return redirect('home')
     context = {'st_form': st_form}
     return render(request, 'djapp/add.html', context)
+
+def editStudent(request, st_id):
+    st = Student.objects.get(id=st_id)
+    st_form = StudentForm(instance=st)
+    if request.method == 'POST':
+        st_form = StudentForm(request.POST, instance=st)
+        if st_form.is_valid():
+            st_form.save()
+            return redirect('home')
+    context = {'st_form': st_form}
+    return render(request, 'djapp/add.html', context)

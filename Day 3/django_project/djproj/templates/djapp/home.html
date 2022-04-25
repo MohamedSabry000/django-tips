@@ -10,13 +10,14 @@
 </head>
 <body>
     <h1><center>All Students</center></h1>
+    <a class="btn btn-primary" href = "{% url 'add' %}">Add Student</a>
     <table class="table table-dark table-striped">
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Age</th>
             <th>Graduated</th>
-            <th colspan="2">Actions</th>
+            <th colspan="3">Actions</th>
         </tr>
         {% for st in student_list  %}
         <tr>
@@ -34,6 +35,7 @@
               {% endif %} </td>
             <td><a class="btn btn-warning" href="{% url 'show' st.id %}">Show</a></td>
             <td><a class="btn btn-danger" href = "{% url 'del' st.id %}">Delete</a></td>
+            <td><a class="btn btn-success" href = "{% url 'edit' st.id %}">Edit</a></td>
         </tr>
         {% endfor %}
 
