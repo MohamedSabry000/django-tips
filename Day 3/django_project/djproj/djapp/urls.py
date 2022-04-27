@@ -14,7 +14,10 @@ urlpatterns = [
     path('api-edit/<st_id>', views.api_edit_student, name='api-edit'),
     path('api-del/<st_id>', views.api_del_student, name='api-del'),
 
-
+    #auth urls
+    path('login',views.loginPg , name='login'),
+    path('signup',views.signupPg , name='signup'),
+    path('signout',views.signoutPg , name='signout')
 # {
 #         "fname": "wael",
 #         "lname": "NoName",
